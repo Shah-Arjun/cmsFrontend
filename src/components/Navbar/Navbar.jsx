@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary ps-4 pe-4">
       <div className="container-fluid">
         {/* Brand on the left */}
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand fw-bolder" to="/">
           CMS
         </NavLink>
 
@@ -32,7 +32,7 @@ const Navbar = () => {
                 to="/"
                 end
                 className={({isActive}) =>
-                  `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
+                  `nav-link fw-bold ${isActive ? "active fw-bold text-primary" : ""}`
                 }
               >
                 Home
@@ -42,7 +42,7 @@ const Navbar = () => {
               <NavLink
                 to="/about"
                 className={({isActive}) =>
-                  `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
+                  `nav-link fw-bold ${isActive ? "active fw-bold text-primary" : ""}`
                 }
               >
                 About
@@ -52,7 +52,7 @@ const Navbar = () => {
               <NavLink
                 to="/contact"
                 className={({isActive}) =>
-                  `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
+                  `nav-link fw-bold ${isActive ? "active fw-bold text-primary" : ""}`
                 }
               >
                 Contact
