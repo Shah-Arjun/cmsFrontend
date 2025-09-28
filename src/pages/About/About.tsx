@@ -1,4 +1,5 @@
 import React from "react";
+import './About.css'
 import Navbar from '../../components/Navbar/Navbar'
 
 export default function About() {
@@ -18,7 +19,7 @@ export default function About() {
       <div className="row g-4">
         {/* Key Features */}
         <div className="col-md-6">
-          <div className="card shadow-sm border-0 h-100">
+          <div className="box card shadow-sm border-1 border-light h-100 me-2">
             <div className="card-body">
               <h3 className="card-title mb-3">🌟 Key Features</h3>
               <ul className="list-unstyled">
@@ -35,7 +36,7 @@ export default function About() {
 
         {/* Who Can Use It */}
         <div className="col-md-6">
-          <div className="card shadow-sm border-0 h-100">
+          <div className="box card shadow-sm border-1 border-light h-100 me-2">
             <div className="card-body">
               <h3 className="card-title mb-3">👥 Who Can Use It?</h3>
               <ul className="list-unstyled">
