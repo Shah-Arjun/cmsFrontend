@@ -40,6 +40,16 @@ const Navbar = () => {
             </li>
             <li className="nav-item ms-4">
               <NavLink
+                to="/createBlog"
+                className={({isActive}) =>
+                  `nav-link fw-bold ${isActive ? "active fw-bold text-primary" : ""}`
+                }
+              >
+                CreateBlog
+              </NavLink>
+            </li>
+            <li className="nav-item ms-4">
+              <NavLink
                 to="/about"
                 className={({isActive}) =>
                   `nav-link fw-bold ${isActive ? "active fw-bold text-primary" : ""}`
