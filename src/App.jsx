@@ -4,12 +4,14 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
 import CreateBlog from './pages/CreateBlog/CreateBlog'
+import SingleBlog from './pages/SingleBlog/SingleBlog'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/singleBlog/:id' element={<SingleBlog />} />
         <Route path='/createBlog' element={<CreateBlog />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
