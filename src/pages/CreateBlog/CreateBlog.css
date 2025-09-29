@@ -13,11 +13,6 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.form-container:hover {
-    transform: scale(1.02); 
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-}
-
 .form-container h2 {
     font-weight: 500;
     margin-bottom: 10px;
