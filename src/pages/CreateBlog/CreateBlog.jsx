@@ -37,29 +37,64 @@ const CreateBlog = () => {
   // }
 
 
+
+
   //2nd approach to handle form data submission
-const handleSubmit = async (e) => {
-  e.preventDefault()
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
 
-  const formData = new FormData(e.currentTarget)   // mskes object as {key: value}
-  console.log("formdata", formData)  // formData is in array
+  //   const formData = new FormData(e.currentTarget)   // mskes object as {key: value}
+  //   console.log("formdata", formData)  // formData is in array
 
-  const data = Object.fromEntries(formData)  //changed in object
+  //   const data = Object.fromEntries(formData)  //changed in object
 
-  console.log("data", data)
+  //   console.log("data", data)
 
-  //sending to backend
-  const res = await axios.post("http://localhost:2000/createBlog", data)
+  //   //sending to backend
+  //   const res = await axios.post("http://localhost:2000/createBlog", data)
 
-  if(res.status === 201) {
-    alert(res.data.message)
-    navigate('/')
-  } 
-  else {
-    alert("Something went wrong")
+  //   if(res.status === 201) {
+  //     alert(res.data.message)
+  //     navigate('/')
+  //   } 
+  //   else {
+  //     alert("Something went wrong")
+  //   }
+
+  // }
+
+
+  //3rd appreach to handle form data submission to backend
+  const [formData, setFormData] = useState({
+    title: "",
+    subTitle: "",
+    description: ""
+  })
+
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    
+    setFormData({
+      ...formData,
+      [name] : value
+    })
   }
 
-}
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const res = await axios.post("http://localhost:2000/createBlog", formData)
+    if(res.status === 201) {
+      alert(res.data.message)
+      navigate('/')
+    }
+    else {
+      alert("Something went wrong")
+    }
+
+  }
 
 
 
@@ -72,15 +107,15 @@ const handleSubmit = async (e) => {
     <form className="form" onSubmit={handleSubmit}>
       {/* Title */}
       <label htmlFor="title">Title</label>
-      <input type="text" id="title" name="title" placeholder="Enter blog title" />
+      <input type="text" id="title" name="title" placeholder="Enter blog title" onChange={handleChange} />
 
       {/* Subtitle */}
       <label htmlFor="subtitle">Subtitle</label>
-      <input type="text" id="subtitle" name="subTitle" placeholder="Enter blog subtitle" />
+      <input type="text" id="subtitle" name="subTitle" placeholder="Enter blog subtitle" onChange={handleChange} />
 
       {/* Description */}
       <label htmlFor="description">Description</label>
-      <textarea id="description" name="description" rows="4" placeholder="Write your blog description..." />
+      <textarea id="description" name="description" rows="4" placeholder="Write your blog description..." onChange={handleChange} />
 
       {/* Submit Button */}
       <button type="submit" className="btn-submit">Publish Blog</button>
